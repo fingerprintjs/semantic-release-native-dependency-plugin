@@ -24,7 +24,7 @@
     "@babel/preset-env": "^7.26.7",
     "@babel/preset-typescript": "^7.26.0",
     "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
+    "@fingerprintjs/commit-lint-dx-team": "^0.1.0",
     "@types/node": "^22.12.0",
     "@types/signale": "^1.4.7",
     "@types/split2": "^4.2.3",
