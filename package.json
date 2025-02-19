@@ -15,7 +15,8 @@
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 .",
     "lint:fix": "pnpm lint --fix",
     "ci": "pnpm lint && pnpm build",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "commit": "cz"
   },
   "keywords": [],
   "author": "FingerprintJS, Inc (https://fingerprint.com)",
@@ -34,6 +35,8 @@
     "@types/node": "^22.12.0",
     "@types/signale": "^1.4.7",
     "@types/split2": "^4.2.3",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
     "get-stream": "^9.0.1",
     "husky": "^9.1.7",
     "into-stream": "^8.0.1",
