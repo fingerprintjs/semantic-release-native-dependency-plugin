@@ -26,6 +26,9 @@ importers:
       '@fingerprintjs/commit-lint-dx-team':
         specifier: ^0.1.0
         version: 0.1.0
+      '@fingerprintjs/tsconfig-dx-team':
+        specifier: ^0.0.2
+        version: 0.0.2
       '@types/node':
         specifier: ^22.12.0
         version: 22.12.0
@@ -706,6 +709,9 @@ packages:
 
   '@fingerprintjs/commit-lint-dx-team@0.1.0':
     resolution: {integrity: sha512-MSYn4bRt9Iyob8hB3Oc/IXz3O8DA2E3ccqlG46pYYhdF090W6u9BNa9uCaVg611FUzqMU41+vs8ztXLkICbKkw==}
+
+  '@fingerprintjs/tsconfig-dx-team@0.0.2':
+    resolution: {integrity: sha512-UZceav58WeTru7yYlATCqw5fMGfvDLg/Y3FCmNucfu0ASuJ8WrFIJez+rAwrJ5ibUNpnJS2VW/ZIxCh9Ww9aIw==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -3515,6 +3521,8 @@ snapshots:
   '@fingerprintjs/commit-lint-dx-team@0.1.0':
     dependencies:
       '@commitlint/config-conventional': 17.8.1
+
+  '@fingerprintjs/tsconfig-dx-team@0.0.2': {}
 
   '@humanfs/core@0.19.1': {}
 
