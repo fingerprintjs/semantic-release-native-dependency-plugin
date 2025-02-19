@@ -7,6 +7,7 @@
     "dist"
   ],
   "scripts": {
+    "prepare": "husky",
     "start": "pnpm build --watch",
     "build": "rimraf ./dist && tsc && babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx",
     "lint": "eslint src",
@@ -29,6 +30,7 @@
     "eslint": "^9.19.0",
     "eslint-config-prettier": "^10.0.1",
     "get-stream": "^9.0.1",
+    "husky": "^9.1.7",
     "into-stream": "^8.0.1",
     "prettier": "^3.4.2",
     "rimraf": "^6.0.1",
