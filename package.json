@@ -15,7 +15,7 @@
     "typecheck": "tsc --noEmit"
   },
   "keywords": [],
-  "author": "Eray Aydın <eray.aydin@fingerprint.com> (https://fingerprint.com)",
+  "author": "FingerprintJS, Inc (https://fingerprint.com)",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.26.4",
