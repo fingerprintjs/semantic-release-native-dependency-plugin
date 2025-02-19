@@ -1,5 +1,5 @@
 {
-  "name": "semantic-release-native-sdk",
+  "name": "@fingerprintjs/semantic-release-native-sdk-plugin",
   "description": "semantic-release plugin to generate native sdk version information",
   "version": "0.1.0-beta.0",
   "exports": "./dist/index.js",
