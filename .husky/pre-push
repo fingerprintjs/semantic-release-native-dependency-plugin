@@ -1,0 +1,28 @@
+# List of protected branches
+protected_branches=("main")
+
+# Get the current branch name
+current_branch=$(git symbolic-ref --short HEAD)
+
+# Get the push command being executed
+push_command=$(ps -ocommand= -p "$PPID" | cut -d' ' -f 4)
+
+is_protected_branch() {
+    for protected_branch in "${protected_branches[@]}"; do
+        if [ "$current_branch" == "$protected_branch" ]; then
+            return 0
+        fi
+    done
+    return 1
+}
+
+is_push_to_target_repo() {
+    [[ "$push_command" =~ git@github.com:/?fingerprintjs/ ]] && return 0 || return 1
+}
+
+if is_push_to_target_repo && is_protected_branch; then
+    echo "You are on the $current_branch branch, pushing is blocked to protected branches."
+    exit 1
+fi
+
+exit 0
