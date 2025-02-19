@@ -1,5 +1,7 @@
 # Semantic Release Plugin: Native SDK Version Retriever
 
+> :warning: **Work in progress**: This is a beta version of the plugin
+
 ## Overview
 
 This plugin retrieves native SDK dependency version information from iOS and Android projects and integrates it into the semantic release workflow generate notes steps.
