@@ -4,8 +4,6 @@
     "target": "es2020",
     "module": "es6",
     "moduleResolution": "node",
-    "declaration": true,
-    "sourceMap": true,
     "strict": true,
     "lib": ["es2020"],
     "typeRoots": ["./node_modules/@types", "./src/@types"],
