@@ -10,7 +10,8 @@
     "prepare": "husky",
     "start": "pnpm build --watch",
     "build": "rimraf ./dist && tsc && babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx",
-    "lint": "eslint src",
+    "lint": "eslint src --max-warnings 0",
+    "lint:fix": "pnpm lint --fix",
     "ci": "pnpm lint && pnpm build",
     "typecheck": "tsc --noEmit"
   },
