@@ -33,6 +33,7 @@
     "get-stream": "^9.0.1",
     "husky": "^9.1.7",
     "into-stream": "^8.0.1",
+    "lint-staged": "^15.4.3",
     "prettier": "^3.4.2",
     "rimraf": "^6.0.1",
     "semantic-release": "^24.2.1",
