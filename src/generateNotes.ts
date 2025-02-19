@@ -1,6 +1,6 @@
-import { join } from "path";
+import { join } from "node:path";
 import { GenerateNotesContext } from "semantic-release";
-import { access, constants, readFileSync } from "fs";
+import { access, constants, readFileSync } from "node:fs";
 import { spawn } from "node:child_process";
 import { Signale } from "signale";
 import split from "split2";
