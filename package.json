@@ -16,6 +16,7 @@
     "lint:fix": "pnpm lint --fix",
     "test": "jest",
     "test:coverage": "jest --coverage",
+    "docs": "typedoc src/index.ts --out docs --readme README.md",
     "ci": "pnpm lint && pnpm build",
     "typecheck": "tsc --noEmit",
     "commit": "cz"
@@ -55,6 +56,7 @@
     "semantic-release": "^24.2.1",
     "ts-jest": "^29.2.5",
     "tslib": "^2.8.1",
+    "typedoc": "^0.27.7",
     "typescript": "^5.7.3"
   }
 }
