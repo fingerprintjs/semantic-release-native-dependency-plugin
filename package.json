@@ -25,6 +25,10 @@
   "keywords": [],
   "author": "FingerprintJS, Inc (https://fingerprint.com)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fingerprintjs/semantic-release-native-sdk-plugin.git"
+  },
   "dependencies": {
     "split2": "^4.2.0"
   },
