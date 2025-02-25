@@ -2,6 +2,9 @@
 
 > :warning: **Work in progress**: This is a beta version of the plugin
 
+> **Note**
+> This repository isn’t part of our core product.
+
 ## Overview
 
 This plugin retrieves native SDK dependency version information from iOS and Android projects and integrates it into the semantic release workflow generate notes steps.
