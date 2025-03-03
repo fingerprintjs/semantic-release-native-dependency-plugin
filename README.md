@@ -50,6 +50,70 @@ Add the plugin to your `.releaserc` configuration:
 - Node.js 14+
 - Semantic Release configured in your project
 
+## Contribution & Development
+
+We welcome contributions! To get started with development:
+
+### Development Environment
+
+- **Node.js 14+** required
+- Uses **pnpm** as the package manager
+- Code follows ESLint and Prettier configurations
+- Uses **Husky** and **Lint-Staged** for pre-commit checks
+- **Jest** for testing
+- **Commitizen** for conventional commits
+
+### Setup
+
+1. Clone the repository
+    ```shell
+    git clone https://github.com/fingerprintjs/semantic-release-native-sdk-plugin.git
+    cd semantic-release-native-sdk-plugin
+    ```
+2. Install dependencies
+    ```shell
+    pnpm install
+    ```
+3. Integrate git hooks
+    ```shell
+    pnpm prepare
+    ```
+
+### Development Workflow
+
+- Start development mode with live rebuilds:
+    ```shell
+    pnpm start
+    ```
+    or build the project manually:
+    ```shell
+    pnpm build
+    ```
+- Run tests:
+    ```shell
+    pnpm test
+    pnpm test:coverage # run tests with coverage report
+    ```
+- Lint and format code:
+    ```shell
+    pnpm lint
+    pnpm lint:fix # auto fix issues
+    ```
+- Run type checks:
+    ```shell
+    pnpm typecheck
+    ```
+- Generate documentation:
+    ```shell
+    pnpm docs
+    ```
+
+### Contribution Guidelines
+
+1. **Make your changes** and follow the existing **code style**.
+2. Commit using **conventional commits** or use commitizen (`cz` / `pnpm commit`)
+3. Create a pull request with description.
+
 ## License
 
 MIT
