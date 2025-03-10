@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for gradle handling getCommand function should throw error if neither gradle nor gradle wrapper are found: noGradleNoWrapper 1`] = `"Gradle or Gradle wrapper not found."`;
