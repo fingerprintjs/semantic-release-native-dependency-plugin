@@ -77,7 +77,7 @@ const generateNotes = async (
   { androidPath, androidGradleTaskName, iOSPodSpecJsonPath }: PluginConfig,
   { logger, cwd, env }: GenerateNotesContext
 ) => {
-  if (cwd === undefined) {
+  if (!cwd) {
     throw new Error(`Current working directory is required to detect native SDK versions.`)
   }
 
