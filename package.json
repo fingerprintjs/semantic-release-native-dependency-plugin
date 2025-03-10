@@ -48,6 +48,7 @@
     "@types/split2": "^4.2.3",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "8.56.0",
     "get-stream": "^9.0.1",
     "husky": "^9.1.7",
     "into-stream": "^8.0.1",
