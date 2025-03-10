@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index generateNotes throws error on androidGradleTaskName not set: noAndroidGradleTaskName 1`] = `"Android gradle task name should be defined."`;
+
+exports[`index generateNotes throws error on cwd not set: noCwd 1`] = `"Current working directory is required to detect native SDK versions."`;
