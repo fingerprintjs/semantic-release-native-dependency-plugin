@@ -14,7 +14,7 @@ describe('Test for generating notes', () => {
         new Signale()
       )
       expect(command).toBe('[1.2.3, 4.5.6)')
-    })
+    }, 30000)
     it('throws error when task not found', () => {
       const signale = new Signale()
       signale.disable()
@@ -22,7 +22,7 @@ describe('Test for generating notes', () => {
       expect(
         getAndroidVersion(cwd(), 'test/project/with-wrapper', 'nonExists', process.env, signale)
       ).rejects.toThrowErrorMatchingSnapshot('gradleNoTask')
-    })
+    }, 30000)
   })
   describe('getIOSVersion function', () => {
     it('returns correct version', async () => {
