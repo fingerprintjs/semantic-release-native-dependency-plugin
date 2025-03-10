@@ -1,29 +1,14 @@
 import { join } from 'node:path'
 import { GenerateNotesContext } from 'semantic-release'
-import { access, constants, readFileSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import { spawn } from 'node:child_process'
 import { Signale } from 'signale'
 import split from 'split2'
 import PluginConfig from './@types/pluginConfig'
+import { getCommand } from './gradle'
+import { humanizeMavenStyleVersionRange } from './utils'
 
-function getCommand(cwd: string): Promise<string> {
-  return new Promise<string>((resolve, reject) => {
-    const gradleWrapper = join(cwd, 'gradlew')
-    access(gradleWrapper, constants.F_OK, (err) => {
-      if (err) {
-        if (err.code === 'ENOENT') {
-          resolve('gradle')
-        } else {
-          reject(err)
-        }
-      } else {
-        resolve(gradleWrapper)
-      }
-    })
-  })
-}
-
-async function getAndroidVersion(
+export async function getAndroidVersion(
   cwd: string,
   androidPath: string,
   androidGradleTaskName: string,
@@ -76,23 +61,13 @@ async function getAndroidVersion(
   })
 }
 
-const humanizeMavenStyleVersionRange = (versionRange: string) => {
-  return versionRange
-    .replace(/\[(.*?)]/g, '>=$1')
-    .replace(/\((.*?)\)/g, '>$1')
-    .replace(/\[(.*?),\s+(.*?)]/g, '>= $1 and <= $2')
-    .replace(/\((.*?),\s+(.*?)]/g, '> $1 and <= $2')
-    .replace(/\[(.*?),\s+(.*?)\)/g, '>= $1 and < $2')
-    .replace(/\((.*?),\s+(.*?)]/g, '>= $1 and <= $2')
-}
-
 type PodspecJson = {
   dependencies: {
     [key: string]: [string]
   }
 }
 
-const getIOSVersion = async (cwd: string, iOSPodSpecJsonPath: string) => {
+export const getIOSVersion = async (cwd: string, iOSPodSpecJsonPath: string) => {
   const data = JSON.parse(readFileSync(join(cwd, iOSPodSpecJsonPath)).toString()) as PodspecJson
 
   return data.dependencies['FingerprintPro'].join(' and ')
