@@ -1,0 +1,7 @@
+ext.fingerprint_native_sdk_version = "[1.2.3, 4.5.6)"
+
+task printFingerprintNativeSDKVersion {
+    doLast {
+        println "${fingerprint_native_sdk_version}"
+    }
+}
