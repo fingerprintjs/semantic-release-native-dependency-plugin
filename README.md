@@ -108,12 +108,6 @@ We welcome contributions! To get started with development:
     pnpm docs
     ```
 
-### Contribution Guidelines
-
-1. **Make your changes** and follow the existing **code style**.
-2. Commit using **conventional commits** or use commitizen (`cz` / `pnpm commit`)
-3. Create a pull request with description.
-
 ## License
 
 MIT

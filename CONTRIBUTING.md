@@ -3,7 +3,7 @@
 We appreciate your interest in contributing to this project! Follow the guidelines below to set up your development
 environment, make changes, and submit your contributions.
 
-## Getting Started
+## How To Contribute?
 
 1. **Fork the Repository**
     - Click the "Fork" button on GitHub and create your own copy of the repository.
@@ -16,35 +16,7 @@ environment, make changes, and submit your contributions.
     ```shell
     pnpm install
     ```
-
-## Development Workflow
-
-- Start development mode with live rebuilds:
-    ```shell
-    pnpm start
-    ```
-  or build the project manually:
-    ```shell
-    pnpm build
-    ```
-- Run tests:
-    ```shell
-    pnpm test
-    pnpm test:coverage # run tests with coverage report
-    ```
-- Lint and format code:
-    ```shell
-    pnpm lint
-    pnpm lint:fix # auto fix issues
-    ```
-- Run type checks:
-    ```shell
-    pnpm typecheck
-    ```
-- Generate documentation:
-    ```shell
-    pnpm docs
-    ```
+4. Follow [Development Workflow][development-workflow] in the `README.md` file.
   
 ## Code Style
 
@@ -53,7 +25,7 @@ before submitting a pull request.
 
 ## Commit Guidelines
 
-We use **Conventional Commits** to maintain consistency in commit messages. Example:
+We use [Conventional Commits][conventional-commits] to maintain consistency in commit messages. Example:
 
 ```shell
 git commit -m "feat: add support for ..."
@@ -90,4 +62,6 @@ If you find a bug or have a feature request, please [open an issue][open-issue] 
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
 
-- [open-issue]: https://github.com/fingerprintjs/semantic-release-native-sdk-plugin/issues/new
+[open-issue]: https://github.com/fingerprintjs/semantic-release-native-sdk-plugin/issues/new
+[development-workflow]: https://github.com/fingerprintjs/semantic-release-native-sdk-plugin?tab=readme-ov-file#development-workflow
+[conventional-commits]: https://conventionalcommits.org
