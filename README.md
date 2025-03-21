@@ -47,7 +47,7 @@ Add the plugin to your `.releaserc` configuration:
 
 ## Requirements
 
-- Node.js 14+
+- Node.js 20.8.1 or higher
 - Semantic Release configured in your project
 
 ## Contribution & Development
@@ -56,7 +56,7 @@ We welcome contributions! To get started with development:
 
 ### Development Environment
 
-- **Node.js 14+** required
+- **Node.js 20.8.1 or higher** required
 - Uses **pnpm** as the package manager
 - Code follows ESLint and Prettier configurations
 - Uses **Husky** and **Lint-Staged** for pre-commit checks
