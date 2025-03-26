@@ -91,6 +91,10 @@ export const getIOSVersion = async (cwd: string, iOSPodSpecJsonPath: string) => 
     throw new Error(`${iOSPodSpecJsonPath} file cannot be parsed as JSON.`)
   }
 
+  if (!data.dependencies || !data.dependencies['FingerprintPro']) {
+    throw new Error(`${iOSPodSpecJsonPath} file does not contain 'FingerprintPro' in dependencies.`)
+  }
+
   return data.dependencies['FingerprintPro'].join(' and ')
 }
 
