@@ -7,12 +7,12 @@ const { generateNotes } = require('../src/index')
 const cwd = process.cwd()
 const pluginConfig = {
   iOS: {
-    podSpecJsonPath: 'podspec.json',
+    podSpecJsonPath: 'test/project/ios/podspec.json',
     dependencyName: 'FingerprintPro',
   },
   android: {
     path: 'android',
-    gradleTaskName: 'print',
+    gradleTaskName: 'printFingerprintNativeSDKVersion',
   },
 } satisfies PluginConfig
 const generateNotesContext = {
@@ -44,5 +44,18 @@ describe('index', () => {
         'noAndroidGradleTaskName'
       )
     })
+    it('throws error on iOS dependency name not set', async () => {
+      const testPluginConfig = {
+        ...pluginConfig,
+        iOS: {
+          ...pluginConfig.iOS,
+          dependencyName: undefined,
+        },
+      } satisfies PluginConfig
+
+      await expect(generateNotes(testPluginConfig, generateNotesContext)).rejects.toThrowErrorMatchingSnapshot(
+        'noIOSDependencyName'
+      )
+    }, 30000)
   })
 })
