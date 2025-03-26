@@ -32,11 +32,13 @@ Add the plugin to your `.releaserc` configuration:
       {
         "iOS": {
           "podSpecJsonPath": "RNFingerprintjsPro.podspec.json",
-          "dependencyName": "FingerprintPro"
+          "dependencyName": "FingerprintPro",
+          "displayName": "Fingerprint iOS SDK"
         },
         "android": {
           "path": "android",
-          "gradleTaskName": "printFingerprintNativeSDKVersion"
+          "gradleTaskName": "printFingerprintNativeSDKVersion",
+          "displayName": "Fingerprint Android SDK"
         }
       }
     ],

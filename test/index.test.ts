@@ -9,10 +9,12 @@ const pluginConfig = {
   iOS: {
     podSpecJsonPath: 'test/project/ios/podspec.json',
     dependencyName: 'FingerprintPro',
+    displayName: 'Fingerprint iOS SDK',
   },
   android: {
     path: 'android',
     gradleTaskName: 'printFingerprintNativeSDKVersion',
+    displayName: 'Fingerprint Android SDK',
   },
 } satisfies PluginConfig
 const generateNotesContext = {

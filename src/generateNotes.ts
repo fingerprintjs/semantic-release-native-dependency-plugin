@@ -115,6 +115,14 @@ const generateNotes = async ({ iOS, android }: PluginConfig, { logger, cwd, env 
     throw new Error('iOS Dependency name should be defined.')
   }
 
+  if (!android.displayName) {
+    android.displayName = 'Android Dependency'
+  }
+
+  if (!iOS.displayName) {
+    iOS.displayName = 'iOS Dependency'
+  }
+
   const androidVersion = await getAndroidVersion(
     cwd,
     android.path,
@@ -123,14 +131,14 @@ const generateNotes = async ({ iOS, android }: PluginConfig, { logger, cwd, env 
     logger
   )
   const humanizedAndroidVersion = humanizeMavenStyleVersionRange(androidVersion)
-  logger.log(`Detected Android Native SDK Version: \`${androidVersion}\` \`${humanizedAndroidVersion}\``)
+  logger.log(`Detected ${android.displayName} Version: \`${androidVersion}\` \`${humanizedAndroidVersion}\``)
 
   const iosVersion = await getIOSVersion(cwd, iOS.podSpecJsonPath, iOS.dependencyName)
-  logger.log(`Detected iOS Native SDK Version: \`${iosVersion}\``)
+  logger.log(`Detected ${iOS.displayName} Version: \`${iosVersion}\``)
 
-  return `Fingerprint Android SDK Version Range: **\`${humanizedAndroidVersion}\`**
+  return `${android.displayName} Version Range: **\`${humanizedAndroidVersion}\`**
 
-Fingerprint iOS SDK Version Range: **\`${iosVersion}\`**`
+${iOS.displayName} Version Range: **\`${iosVersion}\`**`
 }
 
 export default generateNotes
