@@ -1,6 +1,10 @@
 export default interface PluginConfig {
-  iOSPodSpecJsonPath: string
-  iOSDependencyName: string
-  androidPath: string
-  androidGradleTaskName: string | undefined
+  iOS: {
+    podSpecJsonPath: string
+    dependencyName: string
+  }
+  android: {
+    path: string
+    gradleTaskName: string | undefined
+  }
 }

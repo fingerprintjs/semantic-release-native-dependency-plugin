@@ -98,37 +98,34 @@ export const getIOSVersion = async (cwd: string, iOSPodSpecJsonPath: string, dep
   return data.dependencies[dependencyName].join(' and ')
 }
 
-const generateNotes = async (
-  { androidPath, androidGradleTaskName, iOSPodSpecJsonPath, iOSDependencyName }: PluginConfig,
-  { logger, cwd, env }: GenerateNotesContext
-) => {
+const generateNotes = async ({ iOS, android }: PluginConfig, { logger, cwd, env }: GenerateNotesContext) => {
   if (!cwd) {
     throw new Error(`Current working directory is required to detect native SDK versions.`)
   }
 
-  if (!androidGradleTaskName) {
+  if (!android.gradleTaskName) {
     throw new Error('Android gradle task name should be defined.')
   }
 
   const androidVersion = await getAndroidVersion(
     cwd,
-    androidPath,
-    androidGradleTaskName,
+    android.path,
+    android.gradleTaskName,
     env as NodeJS.ProcessEnv,
     logger
   )
   const humanizedAndroidVersion = humanizeMavenStyleVersionRange(androidVersion)
   logger.log(`Detected Android Native SDK Version: \`${androidVersion}\` \`${humanizedAndroidVersion}\``)
 
-  if (!iOSPodSpecJsonPath) {
+  if (!iOS.podSpecJsonPath) {
     throw new Error('iOS Podspec Json path should be defined.')
   }
 
-  if (!iOSDependencyName) {
+  if (!iOS.dependencyName) {
     throw new Error('iOS Dependency name should be defined.')
   }
 
-  const iosVersion = await getIOSVersion(cwd, iOSPodSpecJsonPath, iOSDependencyName)
+  const iosVersion = await getIOSVersion(cwd, iOS.podSpecJsonPath, iOS.dependencyName)
   logger.log(`Detected iOS Native SDK Version: \`${iosVersion}\``)
 
   return `Fingerprint Android SDK Version Range: **\`${humanizedAndroidVersion}\`**

@@ -6,10 +6,14 @@ const { generateNotes } = require('../src/index')
 
 const cwd = process.cwd()
 const pluginConfig = {
-  androidPath: 'android',
-  androidGradleTaskName: 'print',
-  iOSPodSpecJsonPath: 'podspec.json',
-  iOSDependencyName: 'FingerprintPro',
+  iOS: {
+    podSpecJsonPath: 'podspec.json',
+    dependencyName: 'FingerprintPro',
+  },
+  android: {
+    path: 'android',
+    gradleTaskName: 'print',
+  },
 } satisfies PluginConfig
 const generateNotesContext = {
   cwd: cwd,
@@ -27,11 +31,14 @@ describe('index', () => {
       }
       await expect(generateNotes(pluginConfig, testGenerateNotesContext)).rejects.toThrowErrorMatchingSnapshot('noCwd')
     })
-    it('throws error on androidGradleTaskName not set', () => {
+    it('throws error on android gradleTaskName not set', () => {
       const testPluginConfig = {
         ...pluginConfig,
-        androidGradleTaskName: undefined,
-      }
+        android: {
+          ...pluginConfig.android,
+          gradleTaskName: undefined,
+        },
+      } satisfies PluginConfig
 
       expect(generateNotes(testPluginConfig, generateNotesContext)).rejects.toThrowErrorMatchingSnapshot(
         'noAndroidGradleTaskName'
