@@ -1,13 +1,12 @@
 import { join } from 'node:path'
 import type { GenerateNotesContext } from 'semantic-release'
-import { readFileSync } from 'node:fs'
 import { spawn } from 'node:child_process'
 import type { Signale } from 'signale'
 import split from 'split2'
 import PluginConfig from './@types/pluginConfig'
 import { getCommand } from './gradle'
 import { humanizeMavenStyleVersionRange } from './utils'
-import fs from 'node:fs'
+import { readFileSync } from 'node:fs'
 
 export async function getAndroidVersion(
   cwd: string,
@@ -71,22 +70,25 @@ type PodspecJson = {
 export const getIOSVersion = async (cwd: string, iOSPodSpecJsonPath: string) => {
   const jsonFile = join(cwd, iOSPodSpecJsonPath)
 
-  const fileExists = fs.existsSync(jsonFile)
-  if (!fileExists) {
-    throw new Error(`${iOSPodSpecJsonPath} file is not exists.`)
-  }
-
-  if (!fs.lstatSync(jsonFile).isFile()) {
-    throw new Error(`${iOSPodSpecJsonPath} is not a file.`)
-  }
-
-  fs.access(jsonFile, fs.constants.R_OK, (err) => {
-    if (err) {
-      throw new Error(`${iOSPodSpecJsonPath} file is not readable.`)
+  let fileContent: string
+  try {
+    fileContent = readFileSync(jsonFile, 'utf8')
+  } catch (error: any) {
+    if (error.code === 'ENOENT') {
+      throw new Error(`${iOSPodSpecJsonPath} file does not exist.`)
+    } else if (error.code === 'EACCES') {
+      throw new Error(`${iOSPodSpecJsonPath} file cannot be accessed.`)
+    } else {
+      throw new Error(`${iOSPodSpecJsonPath} file cannot be read.`)
     }
-  })
+  }
 
-  const data = JSON.parse(readFileSync(jsonFile).toString()) as PodspecJson
+  let data: PodspecJson
+  try {
+    data = JSON.parse(fileContent) as PodspecJson
+  } catch (error) {
+    throw new Error(`${iOSPodSpecJsonPath} file cannot be parsed as JSON.`)
+  }
 
   return data.dependencies['FingerprintPro'].join(' and ')
 }

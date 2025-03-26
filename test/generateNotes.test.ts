@@ -29,8 +29,23 @@ describe('Test for generating notes', () => {
       const iosVersion = await getIOSVersion(cwd(), 'test/project/ios/podspec.json')
       expect(iosVersion).toBe('>= 1.2.3 and < 4.5.6')
     })
-    it('throws error when file not found', () => {
-      expect(getIOSVersion(cwd(), 'nonExists')).rejects.toThrowErrorMatchingSnapshot('podspecFileNotFound')
+    it('throws error when file not found', async () => {
+      await expect(getIOSVersion(cwd(), 'nonExists')).rejects.toThrowErrorMatchingSnapshot('podspecFileNotFound')
+    })
+    it('throws error when file not readable', async () => {
+      const readFileSyncMock = jest.spyOn(require('node:fs'), 'readFileSync')
+      readFileSyncMock.mockImplementation(() => {
+        throw { code: 'EACCES' }
+      })
+
+      await expect(getIOSVersion(cwd(), 'not-readable.podspec.json')).rejects.toThrowErrorMatchingSnapshot(
+        'podspecNotReadable'
+      )
+
+      readFileSyncMock.mockRestore()
+    })
+    it('throws error when path is a directory', async () => {
+      await expect(getIOSVersion(cwd(), 'test')).rejects.toThrowErrorMatchingSnapshot('podspecPathIsDirectory')
     })
   })
 })
