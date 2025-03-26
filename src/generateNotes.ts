@@ -74,12 +74,13 @@ export const getIOSVersion = async (cwd: string, iOSPodSpecJsonPath: string) => 
   try {
     fileContent = readFileSync(jsonFile, 'utf8')
   } catch (error: any) {
-    if (error.code === 'ENOENT') {
-      throw new Error(`${iOSPodSpecJsonPath} file does not exist.`)
-    } else if (error.code === 'EACCES') {
-      throw new Error(`${iOSPodSpecJsonPath} file cannot be accessed.`)
-    } else {
-      throw new Error(`${iOSPodSpecJsonPath} file cannot be read.`)
+    switch (error.code) {
+      case 'ENOENT':
+        throw new Error(`${iOSPodSpecJsonPath} file does not exist.`)
+      case 'EACCES':
+        throw new Error(`${iOSPodSpecJsonPath} file cannot be accessed.`)
+      default:
+        throw new Error(`${iOSPodSpecJsonPath} file cannot be read.`)
     }
   }
 
