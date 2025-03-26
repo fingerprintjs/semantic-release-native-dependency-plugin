@@ -1,4 +1,4 @@
-# Contributing to Semantic Release Native SDK Plugin
+# Contributing to Semantic Release Native Dependency
 
 We appreciate your interest in contributing to this project! Follow the guidelines below to set up your development
 environment, make changes, and submit your contributions.
@@ -9,8 +9,8 @@ environment, make changes, and submit your contributions.
     - Click the "Fork" button on GitHub and create your own copy of the repository.
 2. **Clone the Repository**
     ```shell
-    git clone https://github.com/<your-username>/semantic-release-native-sdk-plugin.git
-    cd semantic-release-native-sdk-plugin
+    git clone https://github.com/<your-username>/semantic-release-native-dependency.git
+    cd semantic-release-native-dependency
     ```
 3. **Install Dependencies**
     ```shell
@@ -62,6 +62,6 @@ If you find a bug or have a feature request, please [open an issue][open-issue] 
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
 
-[open-issue]: https://github.com/fingerprintjs/semantic-release-native-sdk-plugin/issues/new
-[development-workflow]: https://github.com/fingerprintjs/semantic-release-native-sdk-plugin?tab=readme-ov-file#development-workflow
+[open-issue]: https://github.com/fingerprintjs/semantic-release-native-dependency/issues/new
+[development-workflow]: https://github.com/fingerprintjs/semantic-release-native-dependency?tab=readme-ov-file#development-workflow
 [conventional-commits]: https://conventionalcommits.org

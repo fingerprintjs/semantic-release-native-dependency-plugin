@@ -1,10 +1,10 @@
 {
-  "name": "@fingerprintjs/semantic-release-native-sdk-plugin",
-  "description": "semantic-release plugin to generate native sdk version information",
+  "name": "@fingerprintjs/semantic-release-native-dependency",
+  "description": "semantic-release plugin to generate native dependency version information",
   "version": "0.1.0-beta.0",
-  "main": "dist/native-sdk-plugin.cjs.js",
-  "module": "dist/native-sdk-plugin.esm.js",
-  "types": "dist/native-sdk-plugin.d.ts",
+  "main": "dist/native-dependency.cjs.js",
+  "module": "dist/native-dependency.esm.js",
+  "types": "dist/native-dependency.d.ts",
   "files": [
     "dist"
   ],
@@ -16,7 +16,7 @@
     "lint:fix": "pnpm lint --fix",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:dts": "tsc --noEmit --isolatedModules dist/native-sdk-plugin.d.ts",
+    "test:dts": "tsc --noEmit --isolatedModules dist/native-dependency.d.ts",
     "docs": "typedoc src/index.ts --out docs --readme README.md",
     "ci": "pnpm lint && pnpm build",
     "typecheck": "tsc --noEmit",
@@ -27,7 +27,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fingerprintjs/semantic-release-native-sdk-plugin.git"
+    "url": "git+https://github.com/fingerprintjs/semantic-release-native-dependency.git"
   },
   "dependencies": {
     "split2": "^4.2.0"

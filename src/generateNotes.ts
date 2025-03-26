@@ -100,7 +100,7 @@ export const getIOSVersion = async (cwd: string, iOSPodSpecJsonPath: string, dep
 
 const generateNotes = async ({ iOS, android }: PluginConfig, { logger, cwd, env }: GenerateNotesContext) => {
   if (!cwd) {
-    throw new Error(`Current working directory is required to detect native SDK versions.`)
+    throw new Error(`Current working directory is required to detect native dependency versions.`)
   }
 
   if (!android.gradleTaskName) {
