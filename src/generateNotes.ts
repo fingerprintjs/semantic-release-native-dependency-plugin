@@ -48,7 +48,7 @@ export async function getAndroidVersion(
       }
 
       if (androidVersion === null) {
-        reject(new Error('Could not read output of `printFingerprintNativeSDKVersion` gradle task.'))
+        reject(new Error(`Could not read output of \`${androidGradleTaskName}\` gradle task.`))
         return
       }
 
