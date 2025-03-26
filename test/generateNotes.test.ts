@@ -17,11 +17,11 @@ describe('Test for generating notes', () => {
       )
       expect(command).toBe('[1.2.3, 4.5.6)')
     }, 30000)
-    it('throws error when task not found', () => {
+    it('throws error when task not found', async () => {
       const signale = new Signale()
       signale.disable()
 
-      expect(
+      await expect(
         getAndroidVersion(cwd(), 'test/project/with-wrapper', 'nonExists', process.env, signale)
       ).rejects.toThrowErrorMatchingSnapshot('gradleNoTask')
     }, 30000)

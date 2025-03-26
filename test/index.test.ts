@@ -33,7 +33,7 @@ describe('index', () => {
       }
       await expect(generateNotes(pluginConfig, testGenerateNotesContext)).rejects.toThrowErrorMatchingSnapshot('noCwd')
     })
-    it('throws error on android gradleTaskName not set', () => {
+    it('throws error on android gradleTaskName not set', async () => {
       const testPluginConfig = {
         ...pluginConfig,
         android: {
@@ -42,7 +42,7 @@ describe('index', () => {
         },
       } satisfies PluginConfig
 
-      expect(generateNotes(testPluginConfig, generateNotesContext)).rejects.toThrowErrorMatchingSnapshot(
+      await expect(generateNotes(testPluginConfig, generateNotesContext)).rejects.toThrowErrorMatchingSnapshot(
         'noAndroidGradleTaskName'
       )
     })
