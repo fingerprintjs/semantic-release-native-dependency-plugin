@@ -107,6 +107,14 @@ const generateNotes = async ({ iOS, android }: PluginConfig, { logger, cwd, env 
     throw new Error('Android gradle task name should be defined.')
   }
 
+  if (!iOS.podSpecJsonPath) {
+    throw new Error('iOS Podspec Json path should be defined.')
+  }
+
+  if (!iOS.dependencyName) {
+    throw new Error('iOS Dependency name should be defined.')
+  }
+
   const androidVersion = await getAndroidVersion(
     cwd,
     android.path,
@@ -116,14 +124,6 @@ const generateNotes = async ({ iOS, android }: PluginConfig, { logger, cwd, env 
   )
   const humanizedAndroidVersion = humanizeMavenStyleVersionRange(androidVersion)
   logger.log(`Detected Android Native SDK Version: \`${androidVersion}\` \`${humanizedAndroidVersion}\``)
-
-  if (!iOS.podSpecJsonPath) {
-    throw new Error('iOS Podspec Json path should be defined.')
-  }
-
-  if (!iOS.dependencyName) {
-    throw new Error('iOS Dependency name should be defined.')
-  }
 
   const iosVersion = await getIOSVersion(cwd, iOS.podSpecJsonPath, iOS.dependencyName)
   logger.log(`Detected iOS Native SDK Version: \`${iosVersion}\``)
