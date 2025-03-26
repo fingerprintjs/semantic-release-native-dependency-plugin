@@ -9,6 +9,7 @@ const pluginConfig = {
   androidPath: 'android',
   androidGradleTaskName: 'print',
   iOSPodSpecJsonPath: 'podspec.json',
+  iOSDependencyName: 'FingerprintPro',
 } satisfies PluginConfig
 const generateNotesContext = {
   cwd: cwd,

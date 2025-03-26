@@ -31,6 +31,7 @@ Add the plugin to your `.releaserc` configuration:
       "semantic-release-native-sdk",
       {
         "iOSPodSpecJsonPath": "RNFingerprintjsPro.podspec.json",
+        "iOSDependencyName": "FingerprintPro",
         "androidPath": "android",
         "androidGradleTaskName": "printFingerprintNativeSDKVersion",
       }

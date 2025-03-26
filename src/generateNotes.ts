@@ -67,7 +67,7 @@ type PodspecJson = {
   }
 }
 
-export const getIOSVersion = async (cwd: string, iOSPodSpecJsonPath: string) => {
+export const getIOSVersion = async (cwd: string, iOSPodSpecJsonPath: string, dependencyName: string) => {
   const jsonFile = join(cwd, iOSPodSpecJsonPath)
 
   let fileContent: string
@@ -91,15 +91,15 @@ export const getIOSVersion = async (cwd: string, iOSPodSpecJsonPath: string) => 
     throw new Error(`${iOSPodSpecJsonPath} file cannot be parsed as JSON.`)
   }
 
-  if (!data.dependencies || !data.dependencies['FingerprintPro']) {
-    throw new Error(`${iOSPodSpecJsonPath} file does not contain 'FingerprintPro' in dependencies.`)
+  if (!data.dependencies || !data.dependencies[dependencyName]) {
+    throw new Error(`${iOSPodSpecJsonPath} file does not contain '${dependencyName}' in dependencies.`)
   }
 
-  return data.dependencies['FingerprintPro'].join(' and ')
+  return data.dependencies[dependencyName].join(' and ')
 }
 
 const generateNotes = async (
-  { androidPath, androidGradleTaskName, iOSPodSpecJsonPath }: PluginConfig,
+  { androidPath, androidGradleTaskName, iOSPodSpecJsonPath, iOSDependencyName }: PluginConfig,
   { logger, cwd, env }: GenerateNotesContext
 ) => {
   if (!cwd) {
@@ -124,7 +124,11 @@ const generateNotes = async (
     throw new Error('iOS Podspec Json path should be defined.')
   }
 
-  const iosVersion = await getIOSVersion(cwd, iOSPodSpecJsonPath)
+  if (!iOSDependencyName) {
+    throw new Error('iOS Dependency name should be defined.')
+  }
+
+  const iosVersion = await getIOSVersion(cwd, iOSPodSpecJsonPath, iOSDependencyName)
   logger.log(`Detected iOS Native SDK Version: \`${iosVersion}\``)
 
   return `Fingerprint Android SDK Version Range: **\`${humanizedAndroidVersion}\`**
