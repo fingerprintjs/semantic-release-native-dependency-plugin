@@ -10,6 +10,7 @@ export function isGradleAvailable(): Promise<boolean> {
   return new Promise((resolve, reject) => {
     exec('gradle --version', (err) => {
       if (err) {
+        // 127 means command not found (https://tldp.org/LDP/abs/html/exitcodes.html)
         if (err.code === 127) {
           resolve(false)
         }
