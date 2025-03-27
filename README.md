@@ -16,7 +16,7 @@ This plugin retrieves native dependency version information from iOS and Android
 ## Installation
 
 ```sh
-pnpm add -D semantic-release-native-dependency
+pnpm add -D semantic-release-native-dependency-plugin
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ Add the plugin to your `.releaserc` configuration:
   "plugins": [
     ...,
     [
-      "semantic-release-native-dependency",
+      "semantic-release-native-dependency-plugin",
       {
         "iOS": {
           "podSpecJsonPath": "RNFingerprintjsPro.podspec.json",
@@ -74,8 +74,8 @@ We welcome contributions! To get started with development:
 
 1. Clone the repository
     ```shell
-    git clone https://github.com/fingerprintjs/semantic-release-native-dependency.git
-    cd semantic-release-native-dependency
+    git clone https://github.com/fingerprintjs/semantic-release-native-dependency-plugin.git
+    cd semantic-release-native-dependency-plugin
     ```
 2. Install dependencies
     ```shell

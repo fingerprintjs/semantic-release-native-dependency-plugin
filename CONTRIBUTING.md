@@ -9,8 +9,8 @@ environment, make changes, and submit your contributions.
     - Click the "Fork" button on GitHub and create your own copy of the repository.
 2. **Clone the Repository**
     ```shell
-    git clone https://github.com/<your-username>/semantic-release-native-dependency.git
-    cd semantic-release-native-dependency
+    git clone https://github.com/<your-username>/semantic-release-native-dependency-plugin.git
+    cd semantic-release-native-dependency-plugin
     ```
 3. **Install Dependencies**
     ```shell
@@ -62,6 +62,6 @@ If you find a bug or have a feature request, please [open an issue][open-issue] 
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
 
-[open-issue]: https://github.com/fingerprintjs/semantic-release-native-dependency/issues/new
-[development-workflow]: https://github.com/fingerprintjs/semantic-release-native-dependency?tab=readme-ov-file#development-workflow
+[open-issue]: https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/issues/new
+[development-workflow]: https://github.com/fingerprintjs/semantic-release-native-dependency-plugin?tab=readme-ov-file#development-workflow
 [conventional-commits]: https://conventionalcommits.org

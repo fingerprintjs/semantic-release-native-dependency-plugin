@@ -1,5 +1,5 @@
 {
-  "name": "@fingerprintjs/semantic-release-native-dependency",
+  "name": "@fingerprintjs/semantic-release-native-dependency-plugin",
   "description": "semantic-release plugin to generate native dependency version information",
   "version": "0.1.0-beta.0",
   "main": "dist/native-dependency.cjs.js",
@@ -27,7 +27,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fingerprintjs/semantic-release-native-dependency.git"
+    "url": "git+https://github.com/fingerprintjs/semantic-release-native-dependency-plugin.git"
   },
   "dependencies": {
     "split2": "^4.2.0"
