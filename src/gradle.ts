@@ -4,7 +4,9 @@ import { exec } from 'node:child_process'
 
 /**
  * Check if gradle is installed to system-wide.
- * @return A promise that resolves if gradle is found
+ * @return A promise that resolves with `true` if gradle is found,
+ *        `false` if gradle is not found,
+ *        and rejects with an error if there is an issue checking for Gradle.
  */
 export function isGradleAvailable(): Promise<boolean> {
   return new Promise((resolve, reject) => {
