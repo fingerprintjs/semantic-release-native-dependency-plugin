@@ -1,0 +1,35 @@
+name: "Bug Report"
+description: "Report a bug to help improve the project"
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "## Describe the bug\nA clear and concise description of what the bug is."
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: "Steps to reproduce"
+      description: "List the steps to reproduce the issue."
+      placeholder: "1. Run command ...\n2. Open file ...\n3. See error ..."
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "Expected behavior"
+      description: "Describe what you expected to happen."
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: "Actual behavior"
+      description: "Describe what actually happened."
+  - type: textarea
+    id: environment
+    attributes:
+      label: "Environment"
+      description: "Provide details about your environment."
+      placeholder: "- OS: Windows/Linux/macOS\n- Node.js version: X.X.X\n- Package version: X.X.X\n- PNPM version: X.X.X"
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional context"
+      description: "Add any other context about the problem here."

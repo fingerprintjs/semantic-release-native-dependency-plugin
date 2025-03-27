@@ -1,0 +1,7 @@
+name: Generate docs and coverage report
+on:
+  workflow_dispatch:
+jobs:
+  generate-docs-and-coverage:
+    name: Generate docs and coverage report
+    uses: fingerprintjs/dx-team-toolkit/.github/workflows/docs-and-coverage.yml@v1

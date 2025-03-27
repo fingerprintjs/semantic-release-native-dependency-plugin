@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index generateNotes throws error on android gradleTaskName not set: noAndroidGradleTaskName 1`] = `"Android gradle task name should be defined."`;
+
+exports[`index generateNotes throws error on cwd not set: noCwd 1`] = `"Current working directory is required to detect native dependency versions."`;
+
+exports[`index generateNotes throws error on iOS dependency name not set: noIOSDependencyName 1`] = `"iOS Dependency name should be defined."`;

@@ -1,11 +1,11 @@
 {
+  "extends": "@fingerprintjs/tsconfig-dx-team/tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "declaration": true,
-    "sourceMap": true,
+    "target": "es2020",
+    "module": "es6",
+    "moduleResolution": "node",
     "strict": true,
-    "lib": ["esnext"],
+    "lib": ["es2020"],
     "typeRoots": ["./node_modules/@types", "./src/@types"],
     "outDir": "./dist",
     "allowSyntheticDefaultImports": true,
@@ -16,8 +16,6 @@
   "include": ["./src/**/*"],
   "exclude": [
     "./node_modules/**/*",
-    "./dist/**/*",
-    "./src/**/*.test.ts",
-    "./src/**/*.test.js"
+    "./dist/**/*"
   ]
 }

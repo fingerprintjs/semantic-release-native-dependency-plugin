@@ -1,5 +1,7 @@
 ### Project
 /dist
+/coverage
+/docs
 
 ### Node
 /node_modules

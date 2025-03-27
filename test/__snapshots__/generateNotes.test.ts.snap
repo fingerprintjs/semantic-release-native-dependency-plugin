@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for generating notes getAndroidVersion function throws error when task not found: gradleNoTask 1`] = `"Unexpected error: Gradle failed with status code 1"`;
+
+exports[`Test for generating notes getIOSVersion function throws error when file not found: podspecFileNotFound 1`] = `"nonExists file does not exist."`;
+
+exports[`Test for generating notes getIOSVersion function throws error when file not readable: podspecNotReadable 1`] = `"not-readable.podspec.json file cannot be accessed."`;
+
+exports[`Test for generating notes getIOSVersion function throws error when path is a directory: podspecPathIsDirectory 1`] = `"test file cannot be read."`;
