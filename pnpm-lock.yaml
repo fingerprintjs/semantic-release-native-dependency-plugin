@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      split2:
-        specifier: ^4.2.0
-        version: 4.2.0
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.7.1
@@ -48,9 +44,6 @@ importers:
       '@types/signale':
         specifier: ^1.4.7
         version: 1.4.7
-      '@types/split2':
-        specifier: ^4.2.3
-        version: 4.2.3
       commitizen:
         specifier: ^4.3.1
         version: 4.3.1(@types/node@22.12.0)(typescript@5.7.3)
@@ -812,9 +805,6 @@ packages:
 
   '@types/signale@1.4.7':
     resolution: {integrity: sha512-nc0j37QupTT7OcYeH3gRE1ZfzUalEUsDKJsJ3IsJr0pjjFZTjtrX1Bsn6Kv56YXI/H9rNSwAkIPRxNlZI8GyQw==}
-
-  '@types/split2@4.2.3':
-    resolution: {integrity: sha512-59OXIlfUsi2k++H6CHgUQKEb2HKRokUA39HY1i1dS8/AIcqVjtAAFdf8u+HxTWK/4FUHMJQlKSZ4I6irCBJ1Zw==}
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
@@ -4267,10 +4257,6 @@ snapshots:
   '@types/semver@7.5.8': {}
 
   '@types/signale@1.4.7':
-    dependencies:
-      '@types/node': 22.12.0
-
-  '@types/split2@4.2.3':
     dependencies:
       '@types/node': 22.12.0
 

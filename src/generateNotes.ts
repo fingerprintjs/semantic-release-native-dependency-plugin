@@ -2,7 +2,6 @@ import { join } from 'node:path'
 import type { GenerateNotesContext } from 'semantic-release'
 import { spawn } from 'node:child_process'
 import type { Signale } from 'signale'
-import split from 'split2'
 import PluginConfig from './@types/pluginConfig'
 import { getCommand } from './gradle'
 import { humanizeMavenStyleVersionRange } from './utils'
@@ -35,11 +34,12 @@ export async function getAndroidVersion(
     }
 
     let androidVersion: string | null = null
-    child.stdout.pipe(split()).on('data', (line: string) => {
-      androidVersion = line
+    child.stdout.on('data', (line: Buffer) => {
+      logger.debug(`Gradle stdout: ${line}`)
+      androidVersion = line.toString().trim()
     })
-    child.stderr.pipe(split()).on('data', (line: string) => {
-      logger.error(line)
+    child.stderr.on('data', (line: Buffer) => {
+      logger.error(line.toString().trim())
     })
     child.on('close', (code: number) => {
       if (code !== 0) {
