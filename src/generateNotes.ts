@@ -35,6 +35,10 @@ export async function getAndroidVersion(
 
     let androidVersion: string | null = null
     child.stdout.on('data', (line: Buffer) => {
+      if (!line || line.toString().trim() === '') {
+        return
+      }
+
       logger.debug(`Gradle stdout: ${line}`)
       androidVersion = line.toString().trim()
     })
