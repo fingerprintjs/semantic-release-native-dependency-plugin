@@ -1,7 +1,5 @@
 # Semantic Release Plugin: Native Dependency Version Retriever
 
-> :warning: **Work in progress**: This is a beta version of the plugin
-
 > **Note**
 > This repository isn’t part of our core product.
 
