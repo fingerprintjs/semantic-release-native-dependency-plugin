@@ -5,9 +5,9 @@
 
 ## Overview
 
-This plugin retrieves native dependency version information from iOS and Android projects and integrates it into the semantic release workflow generate notes steps.
+This plugin retrieves native dependency version information from iOS and/or Android projects and integrates it into the semantic release workflow generate notes steps.
 
-- Extracts dependency versions from podspec json file (iOS) and Gradle task output (Android)
+- Extracts dependency versions from podspec json file (iOS) and/or Gradle task output (Android)
 - Ensures version consistency in release notes
 - Automates version retrieval for better release documentation
 
@@ -28,25 +28,27 @@ Add the plugin to your `.releaserc` configuration:
     [
       "@fingerprintjs/semantic-release-native-dependency-plugin",
       {
-        "iOS": {
-          "podSpecJsonPath": "RNFingerprintjsPro.podspec.json",
-          "dependencyName": "FingerprintPro",
-          "displayName": "Fingerprint iOS SDK"
-        },
-        "android": {
-          "path": "android",
-          "gradleTaskName": "printFingerprintNativeSDKVersion",
-          "displayName": "Fingerprint Android SDK"
+        "platforms": {
+          "iOS": {
+            "podSpecJsonPath": "RNFingerprintjsPro.podspec.json",
+            "dependencyName": "FingerprintPro",
+            "displayName": "Fingerprint iOS SDK"
+          },
+          "android": {
+            "path": "android",
+            "gradleTaskName": "printFingerprintNativeSDKVersion",
+            "displayName": "Fingerprint Android SDK"
+          }
         }
       }
-    ],
+    ]
   ]
 }
 ```
 
 ## How It Works
 
-- The plugin reads version information from podspec json file (iOS) and a custom Gradle task output (Android).
+- The plugin reads version information from podspec json file (iOS) and/or a custom Gradle task output (Android).
 - It automatically includes the extracted versions in the release notes.
 - Helps maintain transparency about dependency versions used in each release.
 
