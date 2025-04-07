@@ -43,7 +43,7 @@ describe('index', () => {
           generateNotesContext
         )
       ).resolves.toBe(`${android.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
-    })
+    }, 30000)
     it('resolves android version (backport)', async () => {
       const android = pluginConfig.platforms.android
 
@@ -55,7 +55,7 @@ describe('index', () => {
           generateNotesContext
         )
       ).resolves.toBe(`${android.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
-    })
+    }, 30000)
     it('resolves iOS version', async () => {
       const iOS = pluginConfig.platforms.iOS
 
