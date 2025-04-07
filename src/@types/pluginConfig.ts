@@ -12,4 +12,5 @@ export default interface PluginConfig {
   iOS?: IOSPlatformConfiguration
   /** @deprecated Use `platforms.android` instead */
   android?: AndroidPlatformConfiguration
+  heading?: string
 }

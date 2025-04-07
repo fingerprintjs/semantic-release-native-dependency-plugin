@@ -108,5 +108,32 @@ describe('index', () => {
     it('throws error when no platform specified', async () => {
       await expect(generateNotes({}, generateNotesContext)).rejects.toThrowErrorMatchingSnapshot('noPlatform')
     })
+    it('adds heading when specified', async () => {
+      const heading = 'Example Heading'
+      const { iOS, android } = pluginConfig.platforms
+
+      const expectedHeading = `### ${heading}`
+      const expectedAndroid = `${android.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`
+      const expectedIOS = `${iOS.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`
+
+      const subTestCases = [
+        {
+          platforms: { iOS, android },
+          expected: [expectedHeading, expectedAndroid, expectedIOS].join('\n\n'),
+        },
+        {
+          platforms: { iOS },
+          expected: [expectedHeading, expectedIOS].join('\n\n'),
+        },
+        {
+          platforms: { android },
+          expected: [expectedHeading, expectedAndroid].join('\n\n'),
+        },
+      ]
+
+      for (const { platforms, expected } of subTestCases) {
+        await expect(generateNotes({ platforms, heading }, generateNotesContext)).resolves.toBe(expected)
+      }
+    }, 30000)
   })
 })
