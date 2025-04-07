@@ -105,5 +105,8 @@ describe('index', () => {
         'noIOSDependencyName'
       )
     }, 30000)
+    it('throws error when no platform specified', async () => {
+      await expect(generateNotes({}, generateNotesContext)).rejects.toThrowErrorMatchingSnapshot('noPlatform')
+    })
   })
 })

@@ -21,6 +21,10 @@ const generateNotes = async (config: PluginConfig, ctx: GenerateNotesContext) =>
     }
   }
 
+  if (!platforms.android && !platforms.iOS) {
+    throw new Error('No platforms specified. You must configure at least one platform under `platforms`.')
+  }
+
   if (platforms['android']) {
     const androidVersion = await androidResolve(ctx, platforms['android'])
     platformVersions['android'] = androidVersion
