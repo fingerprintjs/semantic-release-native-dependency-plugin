@@ -2,6 +2,8 @@
 
 exports[`index generateNotes throws error on android gradleTaskName not set: noAndroidGradleTaskName 1`] = `"Android gradle task name should be defined."`;
 
-exports[`index generateNotes throws error on cwd not set: noCwd 1`] = `"Current working directory is required to detect native dependency versions."`;
+exports[`index generateNotes throws error on cwd not set: noCwd 1`] = `"Current working directory is required to detect android dependency version range."`;
 
 exports[`index generateNotes throws error on iOS dependency name not set: noIOSDependencyName 1`] = `"iOS Dependency name should be defined."`;
+
+exports[`index generateNotes throws error when no platform specified: noPlatform 1`] = `"No platforms specified. You must configure at least one platform under \`platforms\`."`;
