@@ -52,6 +52,20 @@ Add the plugin to your `.releaserc` configuration:
 - It automatically includes the extracted versions in the release notes.
 - Helps maintain transparency about dependency versions used in each release.
 
+Example generated release notes:
+
+```markdown
+## 3.4.0 (https://github.com/.../compare/v3.3.1...v3.4.0) (2025-04-10)
+
+### Features
+
+* example feat release ([018455b](https://github.com/.../commit/...))
+
+Fingerprint Android SDK Version Range: `>= 2.7.0 and < 3.0.0`
+
+Fingerprint iOS SDK Version Range: `>= 2.7.0 and < 3.0.0`
+```
+
 ## Requirements
 
 - Node.js 20.8.1 or higher
