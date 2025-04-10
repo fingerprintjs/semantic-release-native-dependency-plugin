@@ -44,7 +44,7 @@ export const resolve = async (
       case 'EACCES':
         throw new Error(`${podSpecJsonPath} file cannot be accessed.`)
       default:
-        throw new Error(`${podSpecJsonPath} file cannot be read.`)
+        throw new Error(`${podSpecJsonPath} file cannot be read. Error: ${error.message}`)
     }
   }
 
