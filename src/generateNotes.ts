@@ -37,13 +37,21 @@ const generateNotes = async (config: PluginConfig, ctx: GenerateNotesContext) =>
     ctx.logger.log(`Detected iOS Version: \`${iOSVersion}\``)
   }
 
-  return Object.keys(platformVersions)
+  let notes = ''
+
+  if (config.heading) {
+    notes += `### ${config.heading}\n\n`
+  }
+
+  notes += Object.keys(platformVersions)
     .map((platformKey) => {
       const platform = platformKey as keyof PlatformConfig
       const version = platformVersions[platform]
       return `${platforms[platform]?.displayName ?? platform} Version Range: **\`${version}\`**`
     })
     .join('\n\n')
+
+  return notes
 }
 
 export default generateNotes
