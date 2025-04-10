@@ -66,9 +66,10 @@ We welcome contributions! To get started with development:
 - **Node.js 20.8.1 or higher** required
 - Uses **pnpm** as the package manager
 - Code follows ESLint and Prettier configurations
-- Uses **Husky** and **Lint-Staged** for pre-commit checks
-- **Jest** for testing
-- **Commitizen** for conventional commits
+- Uses **[Husky][husky]** and **[Lint-Staged][lint-staged]** for pre-commit checks
+- **[Jest][jest]** for testing
+- **[Commitizen][commitizen]** for conventional commits
+
 
 ### Setup
 
@@ -118,3 +119,8 @@ We welcome contributions! To get started with development:
 ## License
 
 MIT
+
+[husky]: https://typicode.github.io/husky
+[lint-staged]: https://github.com/lint-staged/lint-staged
+[jest]: https://jestjs.io
+[commitizen]: https://commitizen-tools.github.io/commitizen
