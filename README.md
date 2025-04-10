@@ -50,6 +50,7 @@ Add the plugin to your `.releaserc` configuration:
 
 | Key                                | Type     | Description                                                                  |
 |------------------------------------|----------|------------------------------------------------------------------------------|
+| `heading`                          | `string` | Optional h3 heading shown before listing platform specific version ranges.   |
 | `platforms`                        | `object` | Top-level object defining configuration for each platform.                   |
 | `platforms.iOS`                    | `object` | Configuration for the iOS dependency version resolution.                     |
 | `platforms.iOS.podSpecJsonPath`    | `string` | Path to the PODSPEC json file containing iOS dependency metadata.            |
