@@ -28,6 +28,7 @@ Add the plugin to your `.releaserc` configuration:
     [
       "@fingerprintjs/semantic-release-native-dependency-plugin",
       {
+        "heading": "Supported Native SDK Version Range",
         "platforms": {
           "iOS": {
             "podSpecJsonPath": "RNFingerprintjsPro.podspec.json",
@@ -60,6 +61,8 @@ Example generated release notes:
 ### Features
 
 * example feat release ([018455b](https://github.com/.../commit/...))
+
+### Supported Native SDK Version Range
 
 Fingerprint Android SDK Version Range: `>= 2.7.0 and < 3.0.0`
 
