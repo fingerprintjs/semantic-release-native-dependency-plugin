@@ -82,9 +82,8 @@ Example generated release notes:
 
 ### Supported Native SDK Version Range
 
-Fingerprint Android SDK Version Range: `>= 2.7.0 and < 3.0.0`
-
-Fingerprint iOS SDK Version Range: `>= 2.7.0 and < 3.0.0`
+* Fingerprint Android SDK Version Range: `>= 2.7.0 and < 3.0.0`
+* Fingerprint iOS SDK Version Range: `>= 2.7.0 and < 3.0.0`
 ```
 
 ## Requirements
