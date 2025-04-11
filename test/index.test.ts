@@ -42,7 +42,7 @@ describe('index', () => {
           },
           generateNotesContext
         )
-      ).resolves.toBe(`${android.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
+      ).resolves.toBe(`* ${android.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
     }, 30000)
     it('resolves android version (backport)', async () => {
       const android = pluginConfig.platforms.android
@@ -54,7 +54,7 @@ describe('index', () => {
           },
           generateNotesContext
         )
-      ).resolves.toBe(`${android.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
+      ).resolves.toBe(`* ${android.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
     }, 30000)
     it('resolves iOS version', async () => {
       const iOS = pluginConfig.platforms.iOS
@@ -68,7 +68,7 @@ describe('index', () => {
           },
           generateNotesContext
         )
-      ).resolves.toBe(`${iOS.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
+      ).resolves.toBe(`* ${iOS.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
     })
     it('resolves iOS version (backport)', async () => {
       const iOS = pluginConfig.platforms.iOS
@@ -80,7 +80,7 @@ describe('index', () => {
           },
           generateNotesContext
         )
-      ).resolves.toBe(`${iOS.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
+      ).resolves.toBe(`* ${iOS.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
     })
     it('throws error on cwd not set', async () => {
       const testGenerateNotesContext = {
@@ -112,22 +112,22 @@ describe('index', () => {
       const heading = 'Example Heading'
       const { iOS, android } = pluginConfig.platforms
 
-      const expectedHeading = `### ${heading}`
-      const expectedAndroid = `${android.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`
-      const expectedIOS = `${iOS.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`
+      const expectedHeading = `### ${heading}\n`
+      const expectedAndroid = `* ${android.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`
+      const expectedIOS = `* ${iOS.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`
 
       const subTestCases = [
         {
           platforms: { iOS, android },
-          expected: [expectedHeading, expectedAndroid, expectedIOS].join('\n\n'),
+          expected: [expectedHeading, expectedAndroid, expectedIOS].join('\n'),
         },
         {
           platforms: { iOS },
-          expected: [expectedHeading, expectedIOS].join('\n\n'),
+          expected: [expectedHeading, expectedIOS].join('\n'),
         },
         {
           platforms: { android },
-          expected: [expectedHeading, expectedAndroid].join('\n\n'),
+          expected: [expectedHeading, expectedAndroid].join('\n'),
         },
       ]
 

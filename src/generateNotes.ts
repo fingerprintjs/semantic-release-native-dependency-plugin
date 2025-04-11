@@ -12,9 +12,9 @@ const formatter = (platforms: { displayName: string; versionRange: string }[], h
 
   result += platforms
     .map(({ displayName, versionRange }) => {
-      return `${displayName} Version Range: **\`${versionRange}\`**`
+      return `* ${displayName} Version Range: **\`${versionRange}\`**`
     })
-    .join('\n\n')
+    .join('\n')
 
   return result
 }
