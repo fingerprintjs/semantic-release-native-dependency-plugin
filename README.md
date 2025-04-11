@@ -28,6 +28,7 @@ Add the plugin to your `.releaserc` configuration:
     [
       "@fingerprintjs/semantic-release-native-dependency-plugin",
       {
+        "heading": "Supported Native SDK Version Range",
         "platforms": {
           "iOS": {
             "podSpecJsonPath": "RNFingerprintjsPro.podspec.json",
@@ -69,6 +70,22 @@ Add the plugin to your `.releaserc` configuration:
 - The plugin reads version information from podspec json file (iOS) and/or a custom Gradle task output (Android).
 - It automatically includes the extracted versions in the release notes.
 - Helps maintain transparency about dependency versions used in each release.
+
+Example generated release notes:
+
+```markdown
+## 3.4.0 (https://github.com/.../compare/v3.3.1...v3.4.0) (2025-04-10)
+
+### Features
+
+* example feat release ([018455b](https://github.com/.../commit/...))
+
+### Supported Native SDK Version Range
+
+Fingerprint Android SDK Version Range: `>= 2.7.0 and < 3.0.0`
+
+Fingerprint iOS SDK Version Range: `>= 2.7.0 and < 3.0.0`
+```
 
 ## Requirements
 
