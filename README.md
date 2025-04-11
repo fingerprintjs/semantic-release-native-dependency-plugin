@@ -49,18 +49,18 @@ Add the plugin to your `.releaserc` configuration:
 
 ### Plugin Configuration Reference
 
-| Key                                | Type     | Default   | Description                                                                  |
-|------------------------------------|----------|-----------|------------------------------------------------------------------------------|
-| `heading`                          | `string` |           | Optional h3 heading shown before listing platform specific version ranges.   |
-| `platforms`                        | `object` |           | Top-level object defining configuration for each platform.                   |
-| `platforms.iOS`                    | `object` |           | Configuration for the iOS dependency version resolution.                     |
-| `platforms.iOS.podSpecJsonPath`    | `string` |           | Path to the PODSPEC json file containing iOS dependency metadata.            |
-| `platforms.iOS.dependencyName`     | `string` |           | Name of the dependency to extract the version.                               |
-| `platforms.iOS.displayName`        | `string` | `iOS`     | Name for the iOS dependency shown in release notes.                          |
-| `platforms.android`                | `object` |           | Configuration for the Android dependency version resolution.                 |
-| `platforms.android.path`           | `string` |           | Relative path to the Android project directory which contains `build.gradle. |
-| `platforms.android.gradleTaskName` | `string` |           | Name of the custom Gradle task that outputs the dependency version.          |
-| `platforms.android.displayName`    | `string` | `android` | Name for the Android dependency shown in release notes.                      |
+| Key                                | Type     | Default               | Description                                                                  |
+|------------------------------------|----------|-----------------------|------------------------------------------------------------------------------|
+| `heading`                          | `string` | `Native Dependencies` | Optional h3 heading shown before listing platform specific version ranges.   |
+| `platforms`                        | `object` |                       | Top-level object defining configuration for each platform.                   |
+| `platforms.iOS`                    | `object` |                       | Configuration for the iOS dependency version resolution.                     |
+| `platforms.iOS.podSpecJsonPath`    | `string` |                       | Path to the PODSPEC json file containing iOS dependency metadata.            |
+| `platforms.iOS.dependencyName`     | `string` |                       | Name of the dependency to extract the version.                               |
+| `platforms.iOS.displayName`        | `string` | `iOS`                 | Name for the iOS dependency shown in release notes.                          |
+| `platforms.android`                | `object` |                       | Configuration for the Android dependency version resolution.                 |
+| `platforms.android.path`           | `string` |                       | Relative path to the Android project directory which contains `build.gradle. |
+| `platforms.android.gradleTaskName` | `string` |                       | Name of the custom Gradle task that outputs the dependency version.          |
+| `platforms.android.displayName`    | `string` | `android`             | Name for the Android dependency shown in release notes.                      |
 
 > **Note:** You can configure one or both platforms depending on your project needs. At least one platform
 > (`iOS` or `android`) must be configured. The plugin will throw an error if both are omitted.

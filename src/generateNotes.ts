@@ -4,11 +4,7 @@ import { resolve as androidResolve } from './platforms/android'
 import { resolve as iOSResolve } from './platforms/iOS'
 
 const formatter = (platforms: { displayName: string; versionRange: string }[], heading?: string) => {
-  let result = ''
-
-  if (heading) {
-    result += `### ${heading}\n\n`
-  }
+  let result = `### ${heading ?? 'Native Dependencies'}\n\n`
 
   result += platforms
     .map(({ displayName, versionRange }) => {
