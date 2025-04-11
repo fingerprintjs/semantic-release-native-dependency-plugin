@@ -4,4 +4,4 @@ exports[`Test for iOS platform throws error when file not found: podspecFileNotF
 
 exports[`Test for iOS platform throws error when file not readable: podspecNotReadable 1`] = `"not-readable.podspec.json file cannot be accessed."`;
 
-exports[`Test for iOS platform throws error when path is a directory: podspecPathIsDirectory 1`] = `"test file cannot be read."`;
+exports[`Test for iOS platform throws error when path is a directory: podspecPathIsDirectory 1`] = `"test file cannot be read. Error: EISDIR: illegal operation on a directory, read"`;
