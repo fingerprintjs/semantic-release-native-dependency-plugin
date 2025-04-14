@@ -27,6 +27,8 @@ const generateNotesContext = {
 
 describe('index', () => {
   describe('generateNotes', () => {
+    const defaultHeading = '### Native Dependencies'
+
     it('is a function', () => {
       expect(generateNotes).toBeInstanceOf(Function)
     })
@@ -42,7 +44,7 @@ describe('index', () => {
           },
           generateNotesContext
         )
-      ).resolves.toBe(`* ${android.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
+      ).resolves.toBe(`${defaultHeading}\n\n* ${android.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
     }, 30000)
     it('resolves android version (backport)', async () => {
       const android = pluginConfig.platforms.android
@@ -54,7 +56,7 @@ describe('index', () => {
           },
           generateNotesContext
         )
-      ).resolves.toBe(`* ${android.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
+      ).resolves.toBe(`${defaultHeading}\n\n* ${android.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
     }, 30000)
     it('resolves iOS version', async () => {
       const iOS = pluginConfig.platforms.iOS
@@ -68,7 +70,7 @@ describe('index', () => {
           },
           generateNotesContext
         )
-      ).resolves.toBe(`* ${iOS.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
+      ).resolves.toBe(`${defaultHeading}\n\n* ${iOS.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
     })
     it('resolves iOS version (backport)', async () => {
       const iOS = pluginConfig.platforms.iOS
@@ -80,7 +82,7 @@ describe('index', () => {
           },
           generateNotesContext
         )
-      ).resolves.toBe(`* ${iOS.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
+      ).resolves.toBe(`${defaultHeading}\n\n* ${iOS.displayName} Version Range: **\`>= 1.2.3 and < 4.5.6\`**`)
     })
     it('throws error on cwd not set', async () => {
       const testGenerateNotesContext = {
