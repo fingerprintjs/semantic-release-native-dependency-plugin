@@ -1,3 +1,15 @@
+## [1.1.0](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/compare/v1.0.0...v1.1.0) (2025-04-14)
+
+
+### Features
+
+* add default heading for release notes ([d5c10a0](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/commit/d5c10a008c5ae89a6407a311f5a2dca8f27f940b))
+* add optional heading to plugin configuration ([73c3224](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/commit/73c3224ec6ea243a5cd35127ec22e2568ce8d1b0))
+* add platform-specific run support with legacy compatibility ([5042f23](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/commit/5042f230a8fc9ba1039f2e21eb5a5ac7af2aa30d))
+* format dependency version ranges in release notes as bullet points ([d1f5457](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/commit/d1f5457ded53c8109bf0ed3364dda9b951c3043f))
+* show actual error message for iOS file read failures ([1eb17df](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/commit/1eb17dff9985c8bc520f0b8da83df7962de37162))
+* throw error when no platforms are configured in plugin config ([5cbed0c](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/commit/5cbed0c6792536c7a70d974b3f93306b66c15a29))
+
 ## 1.0.0 (2025-03-31)
 
 
