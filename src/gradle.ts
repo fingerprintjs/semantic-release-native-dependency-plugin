@@ -1,6 +1,7 @@
 import { join } from 'node:path'
 import { access, constants } from 'node:fs'
 import { exec } from 'node:child_process'
+import { isNotFoundErrorCode } from './utils'
 
 /**
  * Check if gradle is installed to system-wide.
@@ -12,8 +13,7 @@ export function isGradleAvailable(): Promise<boolean> {
   return new Promise((resolve, reject) => {
     exec('gradle --version', (err) => {
       if (err) {
-        // 127 means command not found (https://tldp.org/LDP/abs/html/exitcodes.html)
-        if (err.code === 127) {
+        if (isNotFoundErrorCode(err.code)) {
           resolve(false)
         }
         reject(err)

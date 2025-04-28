@@ -5,9 +5,10 @@
 
 ## Overview
 
-This plugin retrieves native dependency version information from iOS and/or Android projects and integrates it into the semantic release workflow generate notes steps.
+This plugin retrieves native dependency version information from iOS and/or Android projects and integrates it into the
+semantic release workflow generate notes steps.
 
-- Extracts dependency versions from podspec json file (iOS) and/or Gradle task output (Android)
+- Extracts dependency versions from podspec file (iOS) and/or Gradle task output (Android)
 - Ensures version consistency in release notes
 - Automates version retrieval for better release documentation
 
@@ -31,7 +32,7 @@ Add the plugin to your `.releaserc` configuration:
         "heading": "Supported Native SDK Version Range",
         "platforms": {
           "iOS": {
-            "podSpecJsonPath": "RNFingerprintjsPro.podspec.json",
+            "podSpecPath": "RNFingerprintjsPro.podspec.json",
             "dependencyName": "FingerprintPro",
             "displayName": "Fingerprint iOS SDK"
           },
@@ -54,7 +55,7 @@ Add the plugin to your `.releaserc` configuration:
 | `heading`                          | `string` | `Native Dependencies` | Optional h3 heading shown before listing platform specific version ranges.   |
 | `platforms`                        | `object` |                       | Top-level object defining configuration for each platform.                   |
 | `platforms.iOS`                    | `object` |                       | Configuration for the iOS dependency version resolution.                     |
-| `platforms.iOS.podSpecJsonPath`    | `string` |                       | Path to the PODSPEC json file containing iOS dependency metadata.            |
+| `platforms.iOS.podSpecPath`        | `string` |                       | Path to the PODSPEC file containing iOS dependency metadata.                 |
 | `platforms.iOS.dependencyName`     | `string` |                       | Name of the dependency to extract the version.                               |
 | `platforms.iOS.displayName`        | `string` | `iOS`                 | Name for the iOS dependency shown in release notes.                          |
 | `platforms.android`                | `object` |                       | Configuration for the Android dependency version resolution.                 |
@@ -67,7 +68,7 @@ Add the plugin to your `.releaserc` configuration:
 
 ## How It Works
 
-- The plugin reads version information from podspec json file (iOS) and/or a custom Gradle task output (Android).
+- The plugin reads version information from podspec file (iOS) and/or a custom Gradle task output (Android).
 - It automatically includes the extracted versions in the release notes.
 - Helps maintain transparency about dependency versions used in each release.
 
@@ -104,7 +105,6 @@ We welcome contributions! To get started with development:
 - **[Jest][jest]** for testing
 - **[Commitizen][commitizen]** for conventional commits
 
-
 ### Setup
 
 1. Clone the repository
@@ -127,7 +127,7 @@ We welcome contributions! To get started with development:
     ```shell
     pnpm start
     ```
-    or build the project manually:
+  or build the project manually:
     ```shell
     pnpm build
     ```
@@ -155,6 +155,9 @@ We welcome contributions! To get started with development:
 MIT
 
 [husky]: https://typicode.github.io/husky
+
 [lint-staged]: https://github.com/lint-staged/lint-staged
+
 [jest]: https://jestjs.io
+
 [commitizen]: https://commitizen-tools.github.io/commitizen

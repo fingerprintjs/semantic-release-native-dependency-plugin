@@ -1,50 +1,85 @@
 import { join } from 'node:path'
 import { readFileSync } from 'node:fs'
 import type { GenerateNotesContext } from 'semantic-release'
+import { isPodAvailable, podIpcSpec, PodspecJson } from '../pods'
+import { JsonParseError } from '../errors'
 
 export interface IOSPlatformConfiguration {
-  podSpecJsonPath: string | undefined
+  /**
+   * @deprecated use `podspecPath` instead
+   * */
+  podSpecJsonPath?: string | undefined
+  podspecPath: string | undefined
   dependencyName: string | undefined
   displayName: string | undefined
 }
 
-type PodspecJson = {
-  dependencies: {
-    [key: string]: [string]
-  }
-}
-
-export type IOSResolveContext = Pick<GenerateNotesContext, 'cwd'>
+export type IOSResolveContext = Pick<GenerateNotesContext, 'cwd' | 'logger'>
 
 export const resolve = async (
-  { cwd }: IOSResolveContext,
-  { podSpecJsonPath, dependencyName }: IOSPlatformConfiguration
+  { cwd, logger }: IOSResolveContext,
+  { podSpecJsonPath, podspecPath, dependencyName }: IOSPlatformConfiguration
 ) => {
   if (!cwd) {
     throw new Error(`Current working directory is required to detect iOS dependency version range.`)
-  }
-
-  if (!podSpecJsonPath) {
-    throw new Error('iOS Podspec Json path should be defined.')
   }
 
   if (!dependencyName) {
     throw new Error('iOS Dependency name should be defined.')
   }
 
-  const jsonFile = join(cwd, podSpecJsonPath)
+  let podspecPathParam: string | undefined
+  if (podspecPath) {
+    podspecPathParam = podspecPath
+  } else if (podSpecJsonPath) {
+    logger.warn('[DEPRECATED] Use `platforms.iOS.podspecPath` instead of `platform.iOS.podSpecJsonPath`.')
+    podspecPathParam = podSpecJsonPath
+  }
+  if (!podspecPathParam) {
+    throw new Error('iOS Podspec path should be defined.')
+  }
+
+  let podspecContents: PodspecJson | undefined
+
+  try {
+    podspecContents = readPodspecJson(cwd, podspecPathParam)
+  } catch (e) {
+    if (!(e instanceof JsonParseError)) {
+      throw e
+    }
+
+    podspecContents = await readPodspecDSL(podspecPathParam)
+  }
+
+  if (!podspecContents.dependencies || !podspecContents.dependencies[dependencyName]) {
+    throw new Error(`${podspecPathParam} file does not contain '${dependencyName}' in dependencies.`)
+  }
+
+  return podspecContents.dependencies[dependencyName].join(' and ')
+}
+
+function readPodspecDSL(podspecFilePath: string): Promise<PodspecJson> {
+  if (!isPodAvailable()) {
+    throw new Error(`Pods not found in your system.`)
+  }
+
+  return podIpcSpec(podspecFilePath)
+}
+
+function readPodspecJson(cwd: string, podspecFilePath: string): PodspecJson {
+  const resolvedPodspecPath = join(cwd, podspecFilePath)
 
   let fileContent: string
   try {
-    fileContent = readFileSync(jsonFile, 'utf8')
+    fileContent = readFileSync(resolvedPodspecPath, 'utf8')
   } catch (error: any) {
     switch (error.code) {
       case 'ENOENT':
-        throw new Error(`${podSpecJsonPath} file does not exist.`)
+        throw new Error(`${podspecFilePath} file does not exist.`)
       case 'EACCES':
-        throw new Error(`${podSpecJsonPath} file cannot be accessed.`)
+        throw new Error(`${podspecFilePath} file cannot be accessed.`)
       default:
-        throw new Error(`${podSpecJsonPath} file cannot be read. Error: ${error.message}`)
+        throw new Error(`${podspecFilePath} file cannot be read. Error: ${error.message}`)
     }
   }
 
@@ -52,12 +87,8 @@ export const resolve = async (
   try {
     data = JSON.parse(fileContent) as PodspecJson
   } catch (error) {
-    throw new Error(`${podSpecJsonPath} file cannot be parsed as JSON.`)
+    throw new JsonParseError(podspecFilePath)
   }
 
-  if (!data.dependencies || !data.dependencies[dependencyName]) {
-    throw new Error(`${podSpecJsonPath} file does not contain '${dependencyName}' in dependencies.`)
-  }
-
-  return data.dependencies[dependencyName].join(' and ')
+  return data
 }
