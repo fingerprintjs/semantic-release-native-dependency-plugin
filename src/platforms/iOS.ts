@@ -3,22 +3,20 @@ import { readFileSync } from 'node:fs'
 import type { GenerateNotesContext } from 'semantic-release'
 
 export interface IOSPlatformConfiguration {
-  podSpecJsonPath: string | undefined
+  /**
+   * @deprecated use `podspecPath` instead
+   * */
+  podSpecJsonPath?: string | undefined
+  podspecPath: string | undefined
   dependencyName: string | undefined
   displayName: string | undefined
 }
 
-type PodspecJson = {
-  dependencies: {
-    [key: string]: [string]
-  }
-}
-
-export type IOSResolveContext = Pick<GenerateNotesContext, 'cwd'>
+export type IOSResolveContext = Pick<GenerateNotesContext, 'cwd' | 'logger'>
 
 export const resolve = async (
-  { cwd }: IOSResolveContext,
-  { podSpecJsonPath, dependencyName }: IOSPlatformConfiguration
+  { cwd, logger }: IOSResolveContext,
+  { podSpecJsonPath, podspecPath, dependencyName }: IOSPlatformConfiguration
 ) => {
   if (!cwd) {
     throw new Error(`Current working directory is required to detect iOS dependency version range.`)
