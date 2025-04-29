@@ -1,3 +1,11 @@
+## [1.2.0](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/compare/v1.1.0...v1.2.0) (2025-04-29)
+
+
+### Features
+
+* add support for podspec in DSL format ([35d91eb](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/commit/35d91ebabd5d8429af7ce83e55a72af5324d2cb6))
+* deprecate `platforms.iOS.podSpecJsonPath` param in favor of `platforms.iOS.podspecPath` ([990305d](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/commit/990305d50f591974f783f90fd540213968fa47c7))
+
 ## [1.1.0](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/compare/v1.0.0...v1.1.0) (2025-04-14)
 
 
