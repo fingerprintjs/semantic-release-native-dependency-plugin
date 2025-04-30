@@ -13,7 +13,7 @@ describe('Test for iOS platform', () => {
 
   it('returns correct version with json', async () => {
     const iosVersion = await resolve(ctx, {
-      podspecPath: 'test/project/ios/podspec.json',
+      podSpecPath: 'test/project/ios/podspec.json',
       dependencyName,
       displayName: undefined,
     })
@@ -32,7 +32,7 @@ describe('Test for iOS platform', () => {
 
   it('returns correct version with dsl', async () => {
     const iosVersion = await resolve(ctx, {
-      podspecPath: 'test/project/ios/Test.podspec',
+      podSpecPath: 'test/project/ios/Test.podspec',
       dependencyName,
       displayName: undefined,
     })
@@ -42,7 +42,7 @@ describe('Test for iOS platform', () => {
   it('throws error when file not found', async () => {
     await expect(
       resolve(ctx, {
-        podspecPath: 'nonExists',
+        podSpecPath: 'nonExists',
         dependencyName,
         displayName: undefined,
       })
@@ -56,7 +56,7 @@ describe('Test for iOS platform', () => {
     })
 
     await expect(
-      resolve(ctx, { podspecPath: 'not-readable.podspec.json', dependencyName, displayName: undefined })
+      resolve(ctx, { podSpecPath: 'not-readable.podspec.json', dependencyName, displayName: undefined })
     ).rejects.toThrowErrorMatchingSnapshot('podspecNotReadable')
 
     readFileSyncMock.mockRestore()
@@ -65,7 +65,7 @@ describe('Test for iOS platform', () => {
   it('throws error when path is a directory', async () => {
     await expect(
       resolve(ctx, {
-        podspecPath: 'test',
+        podSpecPath: 'test',
         dependencyName,
         displayName: undefined,
       })

@@ -9,7 +9,7 @@ export interface IOSPlatformConfiguration {
    * @deprecated use `podspecPath` instead
    * */
   podSpecJsonPath?: string | undefined
-  podspecPath: string | undefined
+  podSpecPath: string | undefined
   dependencyName: string | undefined
   displayName: string | undefined
 }
@@ -18,7 +18,7 @@ export type IOSResolveContext = Pick<GenerateNotesContext, 'cwd' | 'logger'>
 
 export const resolve = async (
   { cwd, logger }: IOSResolveContext,
-  { podSpecJsonPath, podspecPath, dependencyName }: IOSPlatformConfiguration
+  { podSpecJsonPath, podSpecPath, dependencyName }: IOSPlatformConfiguration
 ) => {
   if (!cwd) {
     throw new Error(`Current working directory is required to detect iOS dependency version range.`)
@@ -29,8 +29,8 @@ export const resolve = async (
   }
 
   let podspecPathParam: string | undefined
-  if (podspecPath) {
-    podspecPathParam = podspecPath
+  if (podSpecPath) {
+    podspecPathParam = podSpecPath
   } else if (podSpecJsonPath) {
     logger.warn('[DEPRECATED] Use `platforms.iOS.podspecPath` instead of `platform.iOS.podSpecJsonPath`.')
     podspecPathParam = podSpecJsonPath

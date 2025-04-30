@@ -9,7 +9,7 @@ const cwd = process.cwd()
 const pluginConfig = {
   platforms: {
     iOS: {
-      podspecPath: 'test/project/ios/podspec.json',
+      podSpecPath: 'test/project/ios/podspec.json',
       dependencyName: 'FingerprintPro',
       displayName: 'Fingerprint iOS SDK',
     },
