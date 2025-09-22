@@ -1,3 +1,11 @@
+## [1.2.2](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/compare/v1.2.1...v1.2.2) (2025-09-22)
+
+
+### Bug Fixes
+
+* resolve podspec via absolute path ([f4d3fe7](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/commit/f4d3fe744a609367186002678cd44500c6fc1743))
+* support non-root android directories ([606194a](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/commit/606194a9e543ee48caa62110bdea6e4b4673e1f1))
+
 ## [1.2.1](https://github.com/fingerprintjs/semantic-release-native-dependency-plugin/compare/v1.2.0...v1.2.1) (2025-04-30)
 
 

@@ -1,7 +1,7 @@
 {
   "name": "@fingerprintjs/semantic-release-native-dependency-plugin",
   "description": "semantic-release plugin to generate native dependency version information",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "main": "dist/native-dependency.cjs.js",
   "module": "dist/native-dependency.esm.js",
   "types": "dist/native-dependency.d.ts",
