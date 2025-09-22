@@ -48,7 +48,8 @@ export const resolve = async (
       throw e
     }
 
-    podspecContents = await readPodspecDSL(podspecPathParam)
+    const podspecDSLPath = join(cwd, podspecPathParam)
+    podspecContents = await readPodspecDSL(podspecDSLPath)
   }
 
   if (!podspecContents.dependencies || !podspecContents.dependencies[dependencyName]) {
