@@ -23,7 +23,7 @@ async function runGradleTask(
 
   return new Promise((resolve, reject) => {
     const child = spawn(command, [androidGradleTaskName, '-q', '--console=plain'], {
-      cwd: androidPath,
+      cwd: androidFullPath,
       env,
       detached: true,
       stdio: ['inherit', 'pipe', 'pipe'],
